@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jyothirmai Naga Prashanthi Kollati - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #00b8d4;
+    }
+    nav a {
+      color: #aaa;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00b8d4;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding-top: 80px;
+      background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      position: relative;
+      text-align: center;
+      color: #00b8d4;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 0;
+    }
+    .hero-content, .hero-image {
+      position: relative;
+      z-index: 1;
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+    .hero img {
+  width: 300px;       /* Wider than height */
+  height: 500px;      /* Height smaller than width */
+  border-radius: 10% / 60%;  /* Elliptical shape */
+  object-fit: cover;
+  border: 3px solid #00b8d4;
+  margin-bottom: 20px;
+}
+
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #00b8d4;
+      border-bottom: 2px solid #222;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .about-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #ccc;
+      text-align: center;
+      line-height: 1.7;
+    }
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+    .skill {
+      text-align: center;
+      color: #ccc;
+    }
+    .skill img {
+      height: 50px;
+      margin-bottom: 10px;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s;
+    }
+    .skill:hover img {
+      filter: none;
+    }
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .project {
+      background: #111;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h3 {
+      color: #00b8d4;
+      margin-bottom: 15px;
+    }
+    .project p {
+      color: #ccc;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .project a {
+      color: #00b8d4;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    /* Experience Section */
+    .experience-list {
+      max-width: 900px;
+      margin: 0 auto;
+      color: #ccc;
+      font-size: 1.1rem;
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .experience-list li {
+      margin-bottom: 20px;
+    }
+    .experience-list li strong {
+      color: #00b8d4;
+    }
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #111;
+      border: 1px solid #00b8d4;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .contact-form button {
+      padding: 12px 30px;
+      background: #00b8d4;
+      color: #000;
+      border: none;
+      font-weight: 700;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #00ffee;
+    }
+    footer {
+      background: #000;
+      color: #777;
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+    }
+    a {
+      color: #00b8d4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media(max-width: 600px){
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content, .hero-image {
+        flex: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jyothirmai Naga Prashanthi Kollati</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-content">
+      <h2>Data Science Graduate & Software Engineer</h2>
+      <p>Passionate about building intelligent solutions with Machine Learning, Big Data, and Software Development.</p>
+    </div>
+    <div class="hero-image">
+      <img src="myphoto.jpeg" alt="Portrait of Jyothirmai Naga Prashanthi Kollati" />
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-label="About Me">
+    <h2>About Me</h2>
+    <p class="about-text">
+     Data Science graduate with nearly 2 years of experience as a Software Engineer, skilled in Machine Learning, Big Data, and Data Engineering. Proficient in Python, Java, SQL, AWS, and PySpark, with hands-on expertise in Spring Boot and system development. Seeking to leverage analytical, programming, and cloud skills to build scalable AI solutions and drive impactful, data-driven insights.
+    </p>
+  </section>
+
+  <section id="skills" class="section" aria-label="Technical Skills">
+    <h2>Top Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" /><div>Python</div></div>
+      <div class="skill" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Logo" /><div>Java</div></div>
+      <div class="skill" title="AWS"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" /><div>AWS</div></div>
+      <div class="skill" title="Apache Spark"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="Apache Logo" /><div>Apache Spark</div></div>
+      <div class="skill" title="SQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Logo" /><div>SQL</div></div>
+      <div class="skill" title="Tableau"><img src="https://www.tableau.com/themes/custom/tableau_www/logo.v2.svg" /><div>Tableau</div></div>
+      <div class="skill" title="Spring Boot"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot Logo" /><div>Spring Boot</div></div>
+      <div class="skill" title="Pandas"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas Logo" /><div>Pandas</div></div>
+      <div class="skill" title="Linux"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux Logo" /><div>Linux</div></div>
+      <div class="skill" title="Git"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Logo" /><div>Git</div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section" aria-label="Projects">
+    <h2>Key Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Medicinal Plant Identifier</h3>
+        <p><strong>Overview:</strong> Developed a deep learning-based web app using Flask to classify medicinal plants from leaf images.</p>
+        <p><strong>Tech Stack:</strong> Python, Flask, Vision Transformer (ViT) Model</p>
+        <p><a href="https://github.com/jyothirmai/Medicinal-Plant-Identifier" target="_blank" rel="noopener">View on GitHub</a></p>
+      </div>
+      <div class="project">
+        <h3>IPL Data Analysis</h3>
+        <p><strong>Overview:</strong> Analyzed Indian Premier League datasets using Databricks and AWS S3 to visualize player and match statistics.</p>
+        <p><strong>Tech Stack:</strong> AWS S3, Databricks, SQL, Python</p>
+        <p><a href="https://github.com/jyothirmai/IPL-Data-Analysis" target="_blank" rel="noopener">View on GitHub</a></p>
+      </div>
+      <div class="project">
+        <h3>Hospital Management System-Flask, MongoDB, HTML/CSS</h3>
+        <p><strong>Overview:</strong>  A web-based application built with Flask and MongoDB to manage patients, appointments, and medications. Integrated telemedicine features and simulated IoT data for real-time vitals tracking.</p>
+        <p><strong>Tech Stack:</strong>Flask, MongoDB, HTML/CSS</p>
+        <p><a href="https://github.com/jyothirmai/Credit-Card-Fraud-Detection" target="_blank" rel="noopener">View on GitHub</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience-section">
+  <h2 class="section-title">Experience & Education</h2>
+
+  <div class="accordion">
+
+    <div class="accordion-item">
+      <button class="accordion-header">Software Engineer – Bees Software Solutions (Full-time)</button>
+      <div class="accordion-content">
+        <p><strong>Duration:</strong> [Month, Year] – [Month, Year]</p>
+        <ul>
+          <li>Led development of data-driven software modules for educational institutions using Java (Spring Boot) and Python.</li>
+          <li>Integrated front-end interfaces (HTML/CSS) with backend systems, enabling dynamic user interaction and data flow.</li>
+          <li>Automated data validation, cleaning, and formatting with Python, streamlining internal pipelines.</li>
+          <li>Built visual dashboards using Matplotlib and Seaborn to analyze student performance and system usage.</li>
+          <li>Developed and integrated RESTful APIs for real-time data exchange between platforms.</li>
+          <li>Participated in Agile sprints, feature testing, and technical documentation to support collaborative delivery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Software Engineer – Bees Software Solutions (Volunteer)</button>
+      <div class="accordion-content">
+        <p><strong>Duration:</strong> [Month, Year] – [Month, Year]</p>
+        <ul>
+          <li>Assisted in developing HTML/CSS-based interfaces for student portals and admin dashboards.</li>
+          <li>Wrote foundational Java and Python scripts for structured data handling and basic analytics.</li>
+          <li>Contributed to system modules involving Java backend components and form-driven data inputs.</li>
+          <li>Observed the software development lifecycle, enhancing understanding of data integrity and modular design.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Telecom Intern – BSNL</button>
+      <div class="accordion-content">
+        <p><strong>Internship:</strong> Diploma Final Semester</p>
+        <ul>
+          <li>Gained hands-on experience with digital signal systems, network protocols, and real-time communication infrastructure.</li>
+          <li>Developed understanding of data transmission workflows, system diagnostics, and network bandwidth monitoring.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">M.S. in Data Science – UMass Dartmouth</button>
+      <div class="accordion-content">
+        <p><strong>Expected Graduation:</strong> May 2025</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">B.Tech in ECE – UCEN JNTUK</button>
+      <div class="accordion-content">
+        <p><strong>Graduated:</strong> 2023</p>
+      </div>
+    </div>
+
+</section>
+
+<style>
+  .experience-section {
+    padding: 30px;
+    background: #0a0a0a;
+    border-radius: 12px;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .section-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00bfff; /* radiant blue */
+    text-align: center;
+  }
+
+  .accordion-item {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #101010, #1c1c1c);
+    box-shadow: 0 2px 12px rgba(0, 191, 255, 0.2);
+  }
+
+  .accordion-header {
+    background-color: transparent;
+    color: #00bfff;
+    cursor: pointer;
+    padding: 16px 20px;
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    transition: background 0.3s ease;
+  }
+
+  .accordion-header:hover {
+    background-color: rgba(0, 191, 255, 0.1);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #121212;
+    transition: max-height 0.6s ease, padding 0.4s ease;
+    padding: 0 20px;
+    color: #ddd;
+  }
+
+  .accordion-content.open {
+    padding: 16px 20px;
+    max-height: 900px;
+  }
+
+  .accordion-content p,
+  .accordion-content li {
+    color: #ccc;
+  }
+
+  .accordion-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+
+  .accordion-content li {
+    margin-bottom: 8px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      const allContents = document.querySelectorAll(".accordion-content");
+      
+      allContents.forEach(item => {
+        if (item !== content) item.classList.remove("open");
+      });
+
+      content.classList.toggle("open");
+    });
+  });
+</script>
+
+
+  <section id="contact" class="section" aria-label="Contact Me">
+    <h2>Get in Touch</h2>
+    <form class="contact-form" action="mailto:jyothirmai@example.com" method="post" enctype="text/plain" aria-label="Contact Form">
+      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
+      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
+      <textarea name="message" rows="6" placeholder="Your Message" required aria-required="true"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Jyothirmai Naga Prashanthi Kollati. All Rights Reserved.
+  </footer>
+</body>
+</html>
